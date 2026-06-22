@@ -7,6 +7,12 @@
     "start": "node index.js",
     "dev": "node --watch index.js"
   },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "uuid": "^9.0.0",
+    "ws": "^8.14.2"
+  },
   "keywords": ["load-balancer", "distributed-systems", "simulator"],
   "author": "",
   "license": "ISC"
