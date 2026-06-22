@@ -40,7 +40,19 @@ const app = express();
 
 // CORS – allow frontend dev server (Vite default: 5173) and any origin in dev
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173'],
+  // Allow localhost in dev + any *.vercel.app preview/production URL in prod
+  origin: function (origin, callback) {
+    const allowedLocals = [
+      'http://localhost:5173',
+      'http://localhost:3000',
+      'http://127.0.0.1:5173',
+    ];
+    if (!origin || allowedLocals.includes(origin) || origin.endsWith('.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(new Error(`CORS: origin "${origin}" not allowed`));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
