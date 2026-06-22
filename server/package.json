@@ -1,0 +1,13 @@
+{
+  "name": "load-balancer-simulator-server",
+  "version": "1.0.0",
+  "description": "Node.js + Express backend for Load Balancer Simulator",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": ["load-balancer", "distributed-systems", "simulator"],
+  "author": "",
+  "license": "ISC"
+}

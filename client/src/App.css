@@ -1,0 +1,181 @@
+/* App.css */
+
+/* ── Navbar ───────────────────────────────────────────────── */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 24px;
+  height: 64px;
+  background: rgba(5, 11, 24, 0.85);
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Brand */
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar__logo {
+  font-size: 28px;
+  filter: drop-shadow(0 0 8px rgba(0,212,255,0.5));
+}
+
+.navbar__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.navbar__title {
+  font-size: 16px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.navbar__subtitle {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Tabs */
+.navbar__tabs {
+  display: flex;
+  gap: 4px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 4px;
+}
+
+.navbar__tab {
+  padding: 7px 16px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.navbar__tab:hover {
+  background: rgba(255,255,255,0.06);
+  color: var(--text-primary);
+}
+
+.navbar__tab--active {
+  background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(168,85,247,0.2)) !important;
+  color: var(--text-bright) !important;
+  border: 1px solid var(--border-medium);
+}
+
+/* Right section */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* ── Connection status badge ──────────────────────────────── */
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--border-subtle);
+  background: rgba(255,255,255,0.04);
+}
+
+.status-badge__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+.status-badge--connected   .status-badge__dot { background: var(--color-green); box-shadow: 0 0 6px var(--color-green); }
+.status-badge--connecting  .status-badge__dot { background: var(--color-yellow); animation: pulse-dot 1s infinite; }
+.status-badge--reconnecting .status-badge__dot { background: var(--color-orange); animation: pulse-dot 1s infinite; }
+.status-badge--error       .status-badge__dot { background: var(--color-red); }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* ── Error banner ─────────────────────────────────────────── */
+.error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  background: rgba(248, 113, 113, 0.12);
+  border-bottom: 1px solid var(--color-red-dim);
+  font-size: 13px;
+  color: var(--color-red);
+}
+
+.error-banner__dismiss {
+  background: none;
+  border: none;
+  color: var(--color-red);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ── App content ──────────────────────────────────────────── */
+.app__content {
+  padding: 24px;
+  min-height: calc(100vh - 64px - 44px);
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+.app__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  font-size: 11px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-subtle);
+  background: rgba(5,11,24,0.5);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  .navbar__subtitle { display: none; }
+  .navbar__tabs { order: 3; width: 100%; justify-content: center; }
+  .app__content { padding: 16px; }
+}

@@ -1,0 +1,112 @@
+/* Dashboard.css */
+
+/* ── Metrics summary bar ──────────────────────────────────── */
+.metrics-bar {
+  display: flex;
+  align-items: center;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(16px);
+  padding: 16px 24px;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.metrics-bar__item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0 20px;
+  flex: 1;
+  min-width: 100px;
+}
+
+.metrics-bar__divider {
+  width: 1px;
+  height: 36px;
+  background: var(--border-subtle);
+  flex-shrink: 0;
+}
+
+/* ── Dashboard layout ─────────────────────────────────────── */
+.dashboard {
+  padding: 0;
+}
+
+.dashboard__layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Sidebar */
+.dashboard__sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Main content */
+.dashboard__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Section ──────────────────────────────────────────────── */
+.dashboard__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Charts rows ──────────────────────────────────────────── */
+.dashboard__charts-row {
+  display: flex;
+  gap: 16px;
+}
+
+.dashboard__chart-wide {
+  width: 100%;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .dashboard__layout {
+    flex-direction: column;
+  }
+  .dashboard__sidebar {
+    width: 100%;
+    position: static;
+    max-height: none;
+  }
+  .dashboard__charts-row {
+    flex-direction: column;
+  }
+  .metrics-bar__divider {
+    display: none;
+  }
+  .metrics-bar__item {
+    min-width: 80px;
+    padding: 0 10px;
+  }
+}

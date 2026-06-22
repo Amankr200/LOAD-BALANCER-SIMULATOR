@@ -1,0 +1,202 @@
+/* TrafficControls.css */
+
+.traffic-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Sections ─────────────────────────────────────────────── */
+.ctrl-section {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ctrl-section__title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* ── Start/Stop/Reset buttons ─────────────────────────────── */
+.ctrl-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.ctrl-buttons .btn {
+  flex: 1;
+  justify-content: center;
+}
+
+.ctrl-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.ctrl-status__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: background var(--transition-med);
+}
+
+.ctrl-status__dot--running {
+  background: var(--color-green);
+  box-shadow: 0 0 8px var(--color-green);
+  animation: pulse-green 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* ── Algorithm selector ───────────────────────────────────── */
+.algo-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.algo-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+  color: var(--text-secondary);
+}
+
+.algo-btn:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: var(--border-medium);
+  color: var(--text-primary);
+}
+
+.algo-btn--active {
+  background: var(--color-cyan-dim) !important;
+  border-color: var(--color-cyan) !important;
+  color: var(--color-cyan) !important;
+  box-shadow: 0 0 12px var(--color-cyan-dim);
+}
+
+.algo-btn__icon { font-size: 18px; }
+.algo-btn__label { font-size: 13px; font-weight: 600; }
+
+/* ── Pattern grid ─────────────────────────────────────────── */
+.pattern-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.pattern-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.pattern-btn:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: var(--border-medium);
+}
+
+.pattern-btn--active {
+  background: var(--color-purple-dim) !important;
+  border-color: var(--color-purple) !important;
+  box-shadow: 0 0 12px var(--color-purple-dim);
+}
+
+.pattern-btn__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pattern-btn__desc {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* ── Sliders ──────────────────────────────────────────────── */
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slider-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-label-row label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.slider-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-muted);
+  padding: 0 2px;
+}
+
+/* ── Weight rows ──────────────────────────────────────────── */
+.weights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.weight-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.weight-server-name {
+  font-size: 12px;
+  color: var(--text-secondary);
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.weight-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--color-cyan);
+  width: 20px;
+  text-align: right;
+  flex-shrink: 0;
+}

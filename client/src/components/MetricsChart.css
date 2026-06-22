@@ -1,0 +1,64 @@
+/* MetricsChart.css */
+
+.chart-container {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  backdrop-filter: blur(12px);
+}
+
+.chart-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.chart-canvas-wrapper {
+  position: relative;
+  height: 220px;
+}
+
+.chart-canvas-wrapper--sm {
+  height: 180px;
+}
+
+.chart-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* Doughnut center overlay */
+.doughnut-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.doughnut-center__value {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-bright);
+  line-height: 1;
+}
+
+.doughnut-center__label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
